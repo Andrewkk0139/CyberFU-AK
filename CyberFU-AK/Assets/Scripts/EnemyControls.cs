@@ -57,10 +57,13 @@ public class EnemyControls : MonoBehaviour
         if(!isFollowingTarget){
             //isFollwoingTarget is true?
             return;
+            //turn off physics
+            rigidbodyEnemy.isKinematic = true;
         }
         //if enemy is too far away to attack target
         if(Vector3.Distance(transform.position,target.position)>= attackingDistance)
         {
+            rigidbodyEnemy.isKinematic = false;
             //direction is equals to the targets position minus enemys position
             direction = target.position - transform.position;
             direction.y = 0;
@@ -76,6 +79,7 @@ public class EnemyControls : MonoBehaviour
             }
             //If enemys distance is close to attack the player
         } else if(Vector3.Distance(transform.position, target.position) <= attackingDistance){
+            rigidbodyEnemy.isKinematic = false;
             //Keeps the enemy from moving within its place
             rigidbodyEnemy.velocity = Vector3.zero;
             //animation "Walk" is set to false
@@ -101,7 +105,7 @@ public class EnemyControls : MonoBehaviour
             //set the current attacking time to 0
             currentAttackingTime = 0f;
             //trigger the enemys attack animation
-            animatorEnemy.SetTrigger("Attack1");
+            EnemyAttack(Random.Range(1,7));
         }
         //if the enemys distance is greater than the attacking
         //distance and the value chasinf player
@@ -110,6 +114,25 @@ public class EnemyControls : MonoBehaviour
             isAttackingTarget = false;
             isFollowingTarget = true;
         }
+    }
+    public void EnemyAttack(int attack){
+        if(attack == 1)
+            //trigger animation "Attack1"
+            animatorEnemy.SetTrigger("Attack1");
+        
+        if(attack==2)
+            //trigger animation "Attack2"
+            animatorEnemy.SetTrigger("Attack2");
+        
+        if(attack==3)
+            animatorEnemy.SetTrigger("Attack3");
+        if(attack==4)
+            animatorEnemy.SetTrigger("Attack4");
+        if(attack==5)
+            animatorEnemy.SetTrigger("Attack5");
+        if(attack==6)
+            animatorEnemy.SetTrigger("Attack6");
+        
     }
 
     void FixedUpdate(){

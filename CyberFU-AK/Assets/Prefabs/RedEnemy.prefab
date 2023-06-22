@@ -1352,10 +1352,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 145afbab93f1c9441b77b85076301449, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
-  attackingDistance: 1
+  speed: 1
+  attackingDistance: 0.7
   direction: {x: 0, y: 0, z: 0}
   isFollowingTarget: 0
+  isAttackingTarget: 0
   currentAttackingTime: 0
   maxAttackingTime: 2
 --- !u!1 &3537918723572985119
@@ -3183,7 +3184,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3538589917968842393}
   m_LocalRotation: {x: 0.010154968, y: -0.00000004354765, z: -0.00000005146178, w: 0.99994844}
-  m_LocalPosition: {x: 3.6082247e-17, y: 0.0018682784, z: -6.519258e-11}
+  m_LocalPosition: {x: -0, y: 0.00182, z: 0.00033}
   m_LocalScale: {x: 1, y: 0.99999994, z: 1}
   m_Children:
   - {fileID: 3534614663051440355}
